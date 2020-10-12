@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e0e3f790609c0245b7614d8147feb2f, type: 3}
+  m_Name: First UI Config
+  m_EditorClassIdentifier: 
+  playerNames:
+  - Jack
+  - James
+  FadeOutTime: 0.5
+  FadeInTime: 0.8
+  MenuPopUpSpeed: 140
+  MenuHideSpeed: 140
+  music:
+    name: Music
+    clip: {fileID: 8300000, guid: 63712b6a8cc56dc4db246a150ba0643a, type: 3}
+    volume: 1
+    mixer: {fileID: 5922717681259176413, guid: d19415c63961bdc498eb736d1cac6ad1, type: 2}
+    loop: 1
+    source: {fileID: 0}
+  buttonSound:
+    name: Sound
+    clip: {fileID: 8300000, guid: 79aa769dadc9e7f408fb3cb3f3ad4352, type: 3}
+    volume: 1
+    mixer: {fileID: 1777138916312145562, guid: d19415c63961bdc498eb736d1cac6ad1, type: 2}
+    loop: 0
+    source: {fileID: 0}
