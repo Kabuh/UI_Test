@@ -12,8 +12,9 @@ public class MenuUIDataScriptable : ScriptableObject
     public float FadeOutTime;
     public float FadeInTime;
 
-    public float MenuPopUpSpeed;
-    public float MenuHideSpeed;
+    [Tooltip("Less is faster")]
+    public float MenuPopUpTime;
+    public float MenuHideTime;
     
     public Sound music;
     public Sound buttonSound;

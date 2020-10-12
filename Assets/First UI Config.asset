@@ -17,8 +17,8 @@ MonoBehaviour:
   - James
   FadeOutTime: 0.5
   FadeInTime: 0.8
-  MenuPopUpSpeed: 140
-  MenuHideSpeed: 140
+  MenuPopUpTime: 1.2
+  MenuHideTime: 0.6
   music:
     name: Music
     clip: {fileID: 8300000, guid: 63712b6a8cc56dc4db246a150ba0643a, type: 3}

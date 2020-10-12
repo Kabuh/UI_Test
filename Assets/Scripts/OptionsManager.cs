@@ -16,8 +16,8 @@ public class OptionsManager : MonoBehaviour
     Vector3 startPos;
     Vector3 destination;
 
-    float rollUpSpeed;
-    float rollDownSpeed;
+    float rollUpTime;
+    float rollDownTime;
 
     [SerializeField]
     Image myPanel;
@@ -34,8 +34,8 @@ public class OptionsManager : MonoBehaviour
         destination = myPanel.transform.position;
         destination.z = startPos.z;
 
-        rollUpSpeed = ScriptableConfigParser.instance.config.MenuPopUpSpeed;
-        rollDownSpeed = ScriptableConfigParser.instance.config.MenuHideSpeed;
+        rollUpTime = ScriptableConfigParser.instance.config.MenuPopUpTime;
+        rollDownTime = ScriptableConfigParser.instance.config.MenuHideTime;
     }
     #endregion
 
@@ -46,29 +46,13 @@ public class OptionsManager : MonoBehaviour
         audioManager = AudioManager.instance;
         audioManager?.PlayButtonSound();
         GOSwitch();
-        movement = MoveTo(startPos, destination, rollUpSpeed, false);
-        StartCoroutine(movement);
+        LeanTween.move(gameObject, destination, rollUpTime).setEaseOutBack();
     }
 
     public void QuitMenu()
     {
         audioManager?.PlayButtonSound();
-        StopCoroutine(movement);
-        movement = MoveTo(destination, startPos, rollDownSpeed, true);
-        StartCoroutine(movement);
-    }
-
-    private IEnumerator MoveTo(Vector3 start, Vector3 end, float speed, bool switchActive)
-    {
-        while (transform.position != end)
-        {
-            transform.position = Vector3.MoveTowards(transform.position, end, speed);
-            yield return new WaitForFixedUpdate();
-        }
-        if (switchActive)
-        {
-            GOSwitch();
-        }
+        LeanTween.move(gameObject, startPos, rollDownTime).setEaseInBack().setOnComplete(GOSwitch);
     }
 
     private void GOSwitch()
